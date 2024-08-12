@@ -1,22 +1,22 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class ShieldMove : MonoBehaviour
+public class BulletStraightMove : MonoBehaviour
 {
     [SerializeField, Header("à⁄ìÆë¨ìx")] float _speed;
-    [SerializeField, Header("éùë±éûä‘")] float _duration;
     Rigidbody2D _rb;
-    void Start()
+    private void Start()
     {
-        GetComponent<SpriteRenderer>().DOFade(0, _duration).OnComplete(() => Destroy(gameObject));
         _rb = GetComponent<Rigidbody2D>();
         _rb.AddForce(transform.up * _speed, ForceMode2D.Impulse);
     }
-    private void OnBecameInvisible()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+
+        }
     }
 }

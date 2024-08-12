@@ -12,7 +12,7 @@ public class PlayerReflect : MonoBehaviour
         transform.up = mousePos - transform.position;
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(_reflectShield, transform.position, transform.rotation);
+            Instantiate(_reflectShield, transform.up, transform.rotation);
         }
     }
 }
